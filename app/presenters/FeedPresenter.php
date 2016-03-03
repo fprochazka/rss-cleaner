@@ -12,7 +12,7 @@ class FeedPresenter extends Nette\Application\UI\Presenter
 	/** @var FeedsList @inject */
 	public $feeds;
 
-	public function actionDefault(string $feed)
+	public function actionDefault($feed)
 	{
 		if (!$this->feeds->hasByName($feed)) {
 			$this->error();
