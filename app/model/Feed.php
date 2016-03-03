@@ -90,7 +90,7 @@ class Feed
 	 */
 	protected function processItem(Item $item)
 	{
-		$grabber = $this->scrapeItem($item);
+		$grabber = $this->scrapeItem($item->getUrl());
 		if ($grabber->hasRelevantContent()) {
 			$item->content = $grabber->getFilteredContent();
 		}
@@ -98,13 +98,13 @@ class Feed
 	}
 
 	/**
-	 * @param \PicoFeed\Parser\Item $item
+	 * @param string $url
 	 * @return \PicoFeed\Scraper\Scraper
 	 */
-	protected function scrapeItem(Item $item)
+	protected function scrapeItem($url)
 	{
 		$grabber = new Scraper($this->config);
-		$grabber->setUrl($item->getUrl());
+		$grabber->setUrl($url);
 		$grabber->execute();
 
 		return $grabber;

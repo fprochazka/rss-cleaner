@@ -37,6 +37,7 @@ services:
 		    - add("two-guys-and-a-guy", RssCleaner\Feed("Two Guys and Guy", "https://feeds.feedburner.com/TwoGuysAndGuy"))
 		    - add(buni, RssCleaner\Feed("Buni", "http://www.bunicomic.com/feed/"))
 		    - add(buttersafe, RssCleaner\Feed("Buttersafe", "https://feeds.feedburner.com/buttersafe"))
+		    - add(oglaf, RssCleaner\Feed\OglafFeed("Oglaf", "http://oglaf.com/feeds/rss/"))
 
 	feedPresenter:
 		class: App\Presenters\FeedPresenter
