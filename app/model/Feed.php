@@ -26,12 +26,16 @@ class Feed
 	/** @var string */
 	private $name;
 
-	public function __construct($name, $url, Config $config)
+	/** @var int */
+	private $maxItems;
+
+	public function __construct($name, $url, Config $config, $maxItems = 10)
 	{
 		$this->name = $name;
 		$this->url = $url;
 		$this->config = $config;
 		$this->reader = new Reader($config);
+		$this->maxItems = $maxItems;
 	}
 
 	/**
@@ -79,6 +83,10 @@ class Feed
 			$rss->items[] = array_filter($item, function ($v) {
 				return $v !== null && $v !== '';
 			});
+
+			if (count($rss->items) >= $this->maxItems) {
+				break; // no more
+			}
 		}
 
 		return $rss;
