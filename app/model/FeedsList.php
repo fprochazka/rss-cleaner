@@ -20,7 +20,7 @@ class FeedsList
 	 * @param string $alias
 	 * @return bool
 	 */
-	public function hasByName(string $alias)
+	public function hasByName($alias)
 	{
 		return array_key_exists($alias, $this->feeds);
 	}
@@ -29,7 +29,7 @@ class FeedsList
 	 * @param string $alias
 	 * @return Feed
 	 */
-	public function getByName(string $alias)
+	public function getByName($alias)
 	{
 		return $this->feeds[$alias];
 	}

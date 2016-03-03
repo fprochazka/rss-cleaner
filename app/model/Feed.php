@@ -26,7 +26,7 @@ class Feed
 	/** @var string */
 	private $name;
 
-	public function __construct(string $name, string $url, Config $config)
+	public function __construct($name, $url, Config $config)
 	{
 		$this->name = $name;
 		$this->url = $url;
