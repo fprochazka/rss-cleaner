@@ -34,6 +34,7 @@ services:
 		class: RssCleaner\FeedsList
 		setup:
 		    - add(explosm, RssCleaner\Feed("Cyanide and Happiness", "https://feeds.feedburner.com/Explosm"))
+		    - add("two-guys-and-a-guy", RssCleaner\Feed("Two Guys and Guy", "https://feeds.feedburner.com/TwoGuysAndGuy"))
 
 	feedPresenter:
 		class: App\Presenters\FeedPresenter
