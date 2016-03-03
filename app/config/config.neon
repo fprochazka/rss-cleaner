@@ -32,6 +32,8 @@ services:
 
 	feeds:
 		class: RssCleaner\FeedsList
+		setup:
+		    - add(explosm, RssCleaner\Feed("Explosm.net", "https://feeds.feedburner.com/Explosm"))
 
 	feedPresenter:
 		class: App\Presenters\FeedPresenter
