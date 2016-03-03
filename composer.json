@@ -6,7 +6,7 @@
 	"require": {
 		"php": ">= 5.4.0",
 		"atrox/matcher": "~1.0",
-		"fguillot/picofeed": "~0.1",
+		"fguillot/picofeed": "dev-devel",
 		"kdyby/monolog": "dev-master",
 		"latte/latte": "^2.3",
 		"nette/application": "^2.3.6",
@@ -26,5 +26,8 @@
 	},
 	"require-dev": {
 		"nette/tester": "^1.6"
-	}
+	},
+	"repositories": [
+		{"type": "vcs", "url": "git@github.com:fprochazka/picoFeed.git"}
+	]
 }

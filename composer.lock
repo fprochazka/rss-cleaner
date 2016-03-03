@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6a105c9db094c59df4dc9635d50b2832",
-    "content-hash": "4217ab64c804308f4de7cc7497489ec4",
+    "hash": "98b0f8fbad64920285a5b8dcbd02240a",
+    "content-hash": "c0566d52b691aa36966fb051de2b9ff7",
     "packages": [
         {
             "name": "atrox/matcher",
@@ -48,16 +48,16 @@
         },
         {
             "name": "fguillot/picofeed",
-            "version": "v0.1.19",
+            "version": "dev-devel",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fguillot/picoFeed.git",
-                "reference": "c270ef4474a2460d857f99c84612025c5f9975f2"
+                "url": "https://github.com/fprochazka/picoFeed.git",
+                "reference": "c19ca871d8412577f4d224ef77cabaf4e444d16c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fguillot/picoFeed/zipball/c270ef4474a2460d857f99c84612025c5f9975f2",
-                "reference": "c270ef4474a2460d857f99c84612025c5f9975f2",
+                "url": "https://api.github.com/repos/fprochazka/picoFeed/zipball/c19ca871d8412577f4d224ef77cabaf4e444d16c",
+                "reference": "c19ca871d8412577f4d224ef77cabaf4e444d16c",
                 "shasum": ""
             },
             "require": {
@@ -81,7 +81,6 @@
                     "PicoFeed": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -92,7 +91,10 @@
             ],
             "description": "Modern library to handle RSS/Atom feeds",
             "homepage": "https://github.com/fguillot/picoFeed",
-            "time": "2016-02-11 19:52:02"
+            "support": {
+                "source": "https://github.com/fprochazka/picoFeed/tree/devel"
+            },
+            "time": "2016-03-03 21:20:00"
         },
         {
             "name": "kdyby/monolog",
@@ -1431,6 +1433,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "fguillot/picofeed": 20,
         "kdyby/monolog": 20
     },
     "prefer-stable": false,
