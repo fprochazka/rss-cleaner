@@ -33,7 +33,7 @@ services:
 	feeds:
 		class: RssCleaner\FeedsList
 		setup:
-		    - add(explosm, RssCleaner\Feed("Explosm.net", "https://feeds.feedburner.com/Explosm"))
+		    - add(explosm, RssCleaner\Feed("Cyanide and Happiness", "https://feeds.feedburner.com/Explosm"))
 
 	feedPresenter:
 		class: App\Presenters\FeedPresenter

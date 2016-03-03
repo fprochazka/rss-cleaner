@@ -69,7 +69,7 @@ class Feed
 	protected function sourceFeedToRss(PicoFeed\Parser\Feed $sourceFeed)
 	{
 		$rss = new Channel();
-		$rss->title = $sourceFeed->getTitle();
+		$rss->title = $this->name ?: $sourceFeed->getTitle();
 		$rss->site_url = $sourceFeed->site_url;
 		$rss->feed_url = $sourceFeed->feed_url;
 
