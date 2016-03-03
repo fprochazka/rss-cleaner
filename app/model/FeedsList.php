@@ -8,7 +8,7 @@ namespace RssCleaner;
 class FeedsList
 {
 
-	/** @var array  */
+	/** @var Feed[]  */
 	private $feeds = [];
 
 	public function add($alias, Feed $feed)
@@ -16,12 +16,20 @@ class FeedsList
 		$this->feeds[$alias] = $feed;
 	}
 
-	public function hasByName(string $alias) : bool
+	/**
+	 * @param string $alias
+	 * @return bool
+	 */
+	public function hasByName(string $alias)
 	{
 		return array_key_exists($alias, $this->feeds);
 	}
 
-	public function getByName(string $alias) : Feed
+	/**
+	 * @param string $alias
+	 * @return Feed
+	 */
+	public function getByName(string $alias)
 	{
 		return $this->feeds[$alias];
 	}

@@ -34,17 +34,26 @@ class Feed
 		$this->reader = new Reader($config);
 	}
 
-	public function getUrl() : string
+	/**
+	 * @return string
+	 */
+	public function getUrl()
 	{
 		return $this->url;
 	}
 
-	public function getName() : string
+	/**
+	 * @return string
+	 */
+	public function getName()
 	{
 		return $this->name;
 	}
 
-	public function toRss() : Channel
+	/**
+	 * @return \RssCleaner\Channel
+	 */
+	public function toRss()
 	{
 		$sourceFeed = $this->parse($this->reader->download($this->url));
 		$rss = $this->sourceFeedToRss($sourceFeed);
@@ -53,7 +62,11 @@ class Feed
 		return $rss;
 	}
 
-	protected function sourceFeedToRss(PicoFeed\Parser\Feed $sourceFeed) : Channel
+	/**
+	 * @param \PicoFeed\Parser\Feed $sourceFeed
+	 * @return \RssCleaner\Channel
+	 */
+	protected function sourceFeedToRss(PicoFeed\Parser\Feed $sourceFeed)
 	{
 		$rss = new Channel();
 		$rss->title = $sourceFeed->getTitle();
@@ -71,7 +84,11 @@ class Feed
 		return $rss;
 	}
 
-	protected function processItem(Item $item) : Item
+	/**
+	 * @param \PicoFeed\Parser\Item $item
+	 * @return \PicoFeed\Parser\Item
+	 */
+	protected function processItem(Item $item)
 	{
 		$grabber = $this->scrapeItem($item);
 		if ($grabber->hasRelevantContent()) {
@@ -80,7 +97,11 @@ class Feed
 		return $item;
 	}
 
-	protected function scrapeItem(Item $item) : Scraper
+	/**
+	 * @param \PicoFeed\Parser\Item $item
+	 * @return \PicoFeed\Scraper\Scraper
+	 */
+	protected function scrapeItem(Item $item)
 	{
 		$grabber = new Scraper($this->config);
 		$grabber->setUrl($item->getUrl());
@@ -89,7 +110,7 @@ class Feed
 		return $grabber;
 	}
 
-	protected function itemToArray(Item $item) : array
+	protected function itemToArray(Item $item)
 	{
 		return [
 			'id' => $item->id,
@@ -103,7 +124,11 @@ class Feed
 		];
 	}
 
-	protected function parse(Client $resource) : PicoFeed\Parser\Feed
+	/**
+	 * @param \PicoFeed\Client\Client $resource
+	 * @return \PicoFeed\Parser\Feed
+	 */
+	protected function parse(Client $resource)
 	{
 		$parser = $this->reader->getParser(
 			$resource->getUrl(),
