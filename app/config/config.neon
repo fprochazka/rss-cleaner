@@ -8,6 +8,10 @@ php:
 	date.timezone: Europe/Prague
 
 
+extensions:
+    monolog: Kdyby\Monolog\DI\MonologExtension
+
+
 application:
 	errorPresenter: Error
 	mapping:
@@ -20,3 +24,14 @@ session:
 
 services:
 	router: App\RouterFactory::createRouter
+
+	feedsConfig:
+		class: PicoFeed\Config\Config()
+		setup:
+			- setGrabberRulesFolder(%appDir%/model/rules)
+
+	feeds:
+		class: RssCleaner\FeedsList
+
+	feedPresenter:
+		class: App\Presenters\FeedPresenter
